@@ -1,0 +1,158 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns='http://www.w3.org/1999/xhtml'>
+	<head >
+		<meta http-equiv='Content-Type' content='text/html; charset=utf-8' />
+		<title >HTML 5, JavaScript  thingy </title>
+		
+			<style>
+				#parent {
+					text-align: center;
+					
+					height: 100%;
+					width: 600px;
+					margin: auto auto auto 10px;
+				}
+				
+				#textbox{
+					text-align: left;
+					background-color: light-gray;
+					height: 100%;
+					width: 600px;
+					margin: auto;
+				}
+				
+				.dropbox  {
+					float: left;
+					width: 300px;
+					height: 40px;
+					margin: 2px;
+					padding: 10px;
+					border: 3px solid purple;
+					justify: center;
+				}
+				.trash  {
+					float: left;
+					width: 300px;
+					height: 40px;
+					margin: 2px;
+					padding: 10px;
+					border: 3px solid red;
+					justify: center;
+				}
+			</style>
+		<script>
+			function allowDrop(ev) {
+				ev.preventDefault();
+			}
+			function drag(ev) {
+				ev.dataTransfer.setData("text", ev.target.id);
+
+
+			}
+			//sets var to text based on id field 
+
+			function drop(ev) {
+				ev.preventDefault();
+				var data = ev.dataTransfer.getData("text"); //ID assigned to "text"
+				if (ev.ctrlKey) {
+				  /* existing ID = var "data" (looks like "dragone_[num]")*/
+					var newId = data.replace(/(\d)+/g, function(match, number) {     //newId is result of "text" having number replaced
+						return parseInt(number)+1;  //increment the # by 1
+				    });
+					  //Use RegEx to increment the ID
+					  console.log(newId); //for debugging
+					  var copycheck = document.getElementById(newId);
+					  console.log(copycheck);
+					    if (copycheck == null){
+						
+						}
+					    while (copycheck != null){
+					        console.log("AACK");
+						    var newId = newId.replace(/(\d)+/g, function(match, number) {
+						        return parseInt(number)+1;
+						        });
+								var copycheck = document.getElementById(newId);
+					        //Use RegEx to increment the ID
+					        //console.log(newId); //for debugging
+					        //var nodeCopy = document.getElementById(data).cloneNode(true);
+							}
+					//}
+					var nodeCopy = document.getElementById(data).cloneNode(true); //creates a copy of the node
+					nodeCopy.id = newId;  //Re-ID the node with the new ID
+					ev.target.appendChild(nodeCopy);
+					//make a copy of this sucka when Ctrl is held
+				} ////
+				else ev.target.appendChild(document.getElementById(data));
+				//or just move that sucka
+			}
+			//Handles dropping elements, making copies
+
+			function getID(ev){
+			    var oldid = ev.dataTransfer.getData("text");
+				
+			}
+
+			function staticDragger(ev){
+				ev.preventDefault();
+				var data = ev.dataTransfer.getData("text");
+					var newId = data.replace(/(\d)+/g, function(match, number) {
+						return parseInt(number)+1;
+					});
+						//Use RegEx to increment the ID
+						console.log(newId); //for debugging
+				var nodeCopy = document.getElementById(data).cloneNode(true);
+				nodeCopy.id = newId;
+				ev.target.appendChild(nodeCopy);				
+			}
+			
+			function trash(ev) {
+				ev.preventDefault();
+				var data = ev.dataTransfer.getData("text");
+				var zap = document.getElementById(data);
+				console.log(zap);
+				zap.parentNode.removeChild(zap);
+			}	
+
+			</script>
+	</head>
+<body>
+<h1>Prototype 1 for the drag and drop thing I want to make</h1>
+<p>Blah blah I'll make this look good with CSS later</p>
+
+<div id="parent">
+	<div class="dropbox" id="div1" ondrop="drop(event)" ondragover="allowDrop(event)" >
+		<img src="face.jpg" align="center" width="300" height="30" draggable="true" ondragstart="drag(event)" dragend="staticDragger(event)" id="dragone_1">
+	</div>
+
+	<div class="dropbox" id="div2" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+	<div class="dropbox" id="div3" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+	<div class="dropbox" id="div4" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+	<div class="dropbox" id="div5" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+	<div class="dropbox" id="div6" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+	
+</div>
+
+
+<div id="parent">
+	<div class="trash" id="trash" ondrop="trash(event)" ondragover="allowDrop(event)"></div>
+</div>
+
+<div id="textbox">	
+<p id="replacerator">This is the demo text. Replace me!</p>
+<button onclick="replaceMe()">Update</button>
+</div>
+<script>	
+function replaceMe(ev){
+var htmltext = 'This is what' + " I'll " + 'put here for debugging porpoises';
+document.getElementById("replacerator").innerHTML = htmltext;
+}
+
+
+</script>
+</body>
+
