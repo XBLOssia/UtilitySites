@@ -6,21 +6,98 @@
 		<title>Phishing Page for DisplayMonkey</title>
 	</head>
 <body>
-<div id="grandpa" style="display:flex;flex-direction:row;background-color:yellow;padding:5px;margin:auto;max-width:900;align:center;width:900;justify:left;min-height:600px;align-content:stretch;">
-	<div id="mother" style="display:flex;flex-direction:column;padding:0px 5px 0px 0px;margin:auto;background-color:blue;max-width:200;display:flex;align-content:stretch;height:600px;align-self:stretch;">
-		<div id="logo" style="display:flex;background-color:orange;min-height:200px;">
-		<img src="./Coyote_Logo_Round.bmp" height="200" width="200" />
+
+<style>
+#grandpa 	{
+			min-height: 600px;
+			max-height: 1080px;
+			min-width: 800px;
+			max-width: 1920px;
+			height:99%; 
+			width:99%;
+			margin:5px;
+			background-color:#b90000;
+			align-content:stretch;
+			align-items: stretch;
+			}
+
+#father 		{
+			display:flex;
+			flex-direction:column;
+			align-content: stretch;
+			align-items: stretch;
+			justify-content: space-around;
+			}
+
+#topbar		{
+			padding:10px;
+			background-color:#b90000;
+			text-align:center;
+			margin:0 auto;
+			/*flex-grow: 1;*/
+			}
+
+h1 			{
+			color:white;
+			font-family:Helvetica,Arial,sans-serif;
+			text-align:center;
+			}
+
+#content 		{
+			background-color:#FFFF00;
+			margin: auto;
+			width: 99%;
+			height: 100%
+			align-self: stretch;
+			/*flex-grow: 4;*/
+			}
+
+h3 			{
+			font-family:Helvetica,Arial,sans-serif;
+			color:#461b7e;
+			}
+
+#flags 		{
+			margin:10px 10%;
+			background-color:white;
+			border:2px red solid;
+			}
+
+b.flag		{
+			color:red;
+			font-family:Helvetica,Arial,sans-serif;
+			}
+
+#bottombar 	{
+			padding:10px;
+			margin: 0 auto;
+			background-color:#b90000;
+			/*flex-grow: 1;*/
+			}
+</style>
+
+<div id="grandpa">
+
+	<div id="father">
+		<div id="topbar">
+		<h1>Only YOU can prevent Phishing!</h1>
 		</div>
-		<div id="leftvert" style="background-color:red;height:100%;align-items:stretch;align-self:stretch;">
-		leftvert
+		<div id="content">
+			<h3>Most data breaches occur through "social engineering" attacks - attacks which take advantage of inattentiveness, carelessness, and/or human kindness.</h3>
+			<p>"Phishing" is one type of social engineering attack, which often takes the form of an email that looks like legitimate correspondance, and aims to manipulate the recipient into performing actions which reveal personal information, such as login names, passwords, credit card information, or personally identifying information. Phishing attacks may also take the form of the scammer posing as a trusted colleague, making requests which may seem reasonable, but result in the victim sending sums of money in the form of money transfers or gift card numbers.</p>
+			<p class="indent">Phishing emails can be difficult to spot, so here are a few red flags to watch out for:</p>
+				<div id="flags">
+				<b class="flag">Red flag:</b> Dropbox links.<br> 
+				<b class="flag">Red flag:</b> Unexpected links, requests and/or attachments. <br>
+				<b class="flag">Red flag:</b> Unprompted email from someone you don't often correspond with. <br>
+				<b class="flag">Red flag:</b> The email address used doesn't match the sender's name. <br>
+				<b class="flag">Red flag:</b> Hovering your mouse cursor over a link shows that the link will take you somewhere unexpected. <br>
+				<b class="flag">Red flag:</b> Receiving email from someone outside of usual/reasonable hours (we're talking 3 AM).<br>
+				<b class="flag">Red flag:</b> Anything having to do with gift cards - Scammers love gift cards.<br>
+				</div>
 		</div>
-	</div>
-	<div id="father" style="flex-direction:column;flex-grow:4;display:flex;height:600px;">
-		<div id="topbar" style="display:table-cell;background-color:black;min-height:196px;border:solid 2px black;text-align:center;vertical-align:middle;">
-		<h1 style="color:white;font-family:sans-serif;font-size:75px;">Tech Tip!</h1>
-		</div>
-		<div id="content" style="background-color:orange;align-self:stretch;height:100%;">
-		Content
+		<div id="bottombar">
+		<h1>Security is everybody's responsibility.!</h1>
 		</div>
 	</div>
 </div>
